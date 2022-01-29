@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Swift
+import AVFoundation
 
 public struct ScannerView: UIViewControllerRepresentable {
 
@@ -8,11 +9,16 @@ public struct ScannerView: UIViewControllerRepresentable {
 
   public var restartSession: Bool
 
+  public var metadataObjectTypes: [AVMetadataObject.ObjectType]
+
   let viewController = UIViewController()
 
-  public init(scannerDelegate: ScannerDelegate?, restartSession: Bool) {
+  public init(scannerDelegate: ScannerDelegate?,
+              restartSession: Bool,
+              metadataObjectTypes: [AVMetadataObject.ObjectType] = MetadataObjectTypes.default) {
     self.scannerDelegate = scannerDelegate
     self.restartSession = restartSession
+    self.metadataObjectTypes = metadataObjectTypes
   }
 
   // MARK: UIViewControllerRepresentable
@@ -28,10 +34,8 @@ public struct ScannerView: UIViewControllerRepresentable {
     }
 
     if restartSession {
-      print("Session restarted")
       context.coordinator.scanner.startCaptureSession()
     } else {
-      print("Session closed")
       context.coordinator.scanner.stopCaptureSession()
     }
   }
@@ -56,7 +60,7 @@ public struct ScannerView: UIViewControllerRepresentable {
       self.parent = parent
       self.viewController = viewController
 
-      self.scanner = Scanner(from: viewController)
+      self.scanner = Scanner(from: viewController, metadataObjectTypes: parent.metadataObjectTypes)
       self.scanner.delegate = parent.scannerDelegate
       self.scanner.createAndStartSession()
     }

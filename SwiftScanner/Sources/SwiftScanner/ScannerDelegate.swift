@@ -1,8 +1,15 @@
-//
-//  File.swift
-//  
-//
-//  Created by Petar Filev on 29.1.22.
-//
+import AVFoundation
 
-import Foundation
+public protocol ScannerDelegate: AnyObject {
+  func metadataOutput(_ output: AVCaptureMetadataOutput,
+                      didOutput metadataObjects: [AVMetadataObject],
+                      from connection: AVCaptureConnection)
+  func metadataOutput(_ string: String)
+}
+
+extension ScannerDelegate {
+  public func metadataOutput(_ output: AVCaptureMetadataOutput,
+                      didOutput metadataObjects: [AVMetadataObject],
+                             from connection: AVCaptureConnection) {}
+  func metadataOutput(_ string: String) {}
+}

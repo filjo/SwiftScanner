@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		24CD5CD827A439A400F9D5F3 /* SwiftScannerSampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC827A439A200F9D5F3 /* SwiftScannerSampleAppApp.swift */; };
-		24CD5CD927A439A400F9D5F3 /* SwiftScannerSampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC827A439A200F9D5F3 /* SwiftScannerSampleAppApp.swift */; };
 		24CD5CDA27A439A400F9D5F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC927A439A200F9D5F3 /* ContentView.swift */; };
-		24CD5CDB27A439A400F9D5F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC927A439A200F9D5F3 /* ContentView.swift */; };
 		24CD5CDC27A439A400F9D5F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */; };
-		24CD5CDD27A439A400F9D5F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */; };
+		24CD5CEA27A43A1400F9D5F3 /* SwiftScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 24CD5CE927A43A1400F9D5F3 /* SwiftScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +18,7 @@
 		24CD5CC927A439A200F9D5F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24CD5CCF27A439A400F9D5F3 /* SwiftScannerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftScannerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24CD5CD527A439A400F9D5F3 /* SwiftScannerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftScannerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24CD5CD727A439A400F9D5F3 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		24CD5CE727A439D300F9D5F3 /* SwiftScanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftScanner; path = ../SwiftScanner; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,31 +26,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24CD5CD227A439A400F9D5F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				24CD5CEA27A43A1400F9D5F3 /* SwiftScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2456BF2727A592C7003558D1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		2456BF2827A592CD003558D1 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		24CD5CC227A439A100F9D5F3 = {
 			isa = PBXGroup;
 			children = (
+				24CD5CE627A439D300F9D5F3 /* Packages */,
 				24CD5CC727A439A200F9D5F3 /* Shared */,
-				24CD5CD627A439A400F9D5F3 /* macOS */,
 				24CD5CD027A439A400F9D5F3 /* Products */,
+				24CD5CE827A43A1400F9D5F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		24CD5CC727A439A200F9D5F3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2456BF2827A592CD003558D1 /* SwiftUI */,
+				2456BF2727A592C7003558D1 /* UIKit */,
 				24CD5CC827A439A200F9D5F3 /* SwiftScannerSampleAppApp.swift */,
 				24CD5CC927A439A200F9D5F3 /* ContentView.swift */,
 				24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */,
@@ -65,17 +73,23 @@
 			isa = PBXGroup;
 			children = (
 				24CD5CCF27A439A400F9D5F3 /* SwiftScannerSampleApp.app */,
-				24CD5CD527A439A400F9D5F3 /* SwiftScannerSampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24CD5CD627A439A400F9D5F3 /* macOS */ = {
+		24CD5CE627A439D300F9D5F3 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				24CD5CD727A439A400F9D5F3 /* macOS.entitlements */,
+				24CD5CE727A439D300F9D5F3 /* SwiftScanner */,
 			);
-			path = macOS;
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		24CD5CE827A43A1400F9D5F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,25 +108,11 @@
 			dependencies = (
 			);
 			name = "SwiftScannerSampleApp (iOS)";
+			packageProductDependencies = (
+				24CD5CE927A43A1400F9D5F3 /* SwiftScanner */,
+			);
 			productName = "SwiftScannerSampleApp (iOS)";
 			productReference = 24CD5CCF27A439A400F9D5F3 /* SwiftScannerSampleApp.app */;
-			productType = "com.apple.product-type.application";
-		};
-		24CD5CD427A439A400F9D5F3 /* SwiftScannerSampleApp (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24CD5CE327A439A400F9D5F3 /* Build configuration list for PBXNativeTarget "SwiftScannerSampleApp (macOS)" */;
-			buildPhases = (
-				24CD5CD127A439A400F9D5F3 /* Sources */,
-				24CD5CD227A439A400F9D5F3 /* Frameworks */,
-				24CD5CD327A439A400F9D5F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SwiftScannerSampleApp (macOS)";
-			productName = "SwiftScannerSampleApp (macOS)";
-			productReference = 24CD5CD527A439A400F9D5F3 /* SwiftScannerSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,9 +126,6 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					24CD5CCE27A439A400F9D5F3 = {
-						CreatedOnToolsVersion = 13.2.1;
-					};
-					24CD5CD427A439A400F9D5F3 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -147,7 +144,6 @@
 			projectRoot = "";
 			targets = (
 				24CD5CCE27A439A400F9D5F3 /* SwiftScannerSampleApp (iOS) */,
-				24CD5CD427A439A400F9D5F3 /* SwiftScannerSampleApp (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -161,14 +157,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24CD5CD327A439A400F9D5F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24CD5CDD27A439A400F9D5F3 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -178,15 +166,6 @@
 			files = (
 				24CD5CDA27A439A400F9D5F3 /* ContentView.swift in Sources */,
 				24CD5CD827A439A400F9D5F3 /* SwiftScannerSampleAppApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24CD5CD127A439A400F9D5F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24CD5CDB27A439A400F9D5F3 /* ContentView.swift in Sources */,
-				24CD5CD927A439A400F9D5F3 /* SwiftScannerSampleAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,24 +288,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WF2T5QR8MC;
+				DEVELOPMENT_TEAM = 3E4653V785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I want to use the app to scan for barcodes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerApp;
 				PRODUCT_NAME = SwiftScannerSampleApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,85 +321,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WF2T5QR8MC;
+				DEVELOPMENT_TEAM = 3E4653V785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I want to use the app to scan for barcodes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerApp;
 				PRODUCT_NAME = SwiftScannerSampleApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		24CD5CE427A439A400F9D5F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WF2T5QR8MC;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerSampleApp;
-				PRODUCT_NAME = SwiftScannerSampleApp;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		24CD5CE527A439A400F9D5F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WF2T5QR8MC;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petarfilev.SwiftScannerSampleApp;
-				PRODUCT_NAME = SwiftScannerSampleApp;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -442,16 +371,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24CD5CE327A439A400F9D5F3 /* Build configuration list for PBXNativeTarget "SwiftScannerSampleApp (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24CD5CE427A439A400F9D5F3 /* Debug */,
-				24CD5CE527A439A400F9D5F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24CD5CE927A43A1400F9D5F3 /* SwiftScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 24CD5CC327A439A100F9D5F3 /* Project object */;
 }

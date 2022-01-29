@@ -1,25 +1,34 @@
 import AVFoundation
 import UIKit
+import SwiftUI
 
-final class Scanner: NSObject {
+final public class Scanner: NSObject {
 
-  // MARK: Private
+  // MARK: Private Properties
 
   private var viewController: UIViewController
   private var capturedSession: AVCaptureSession?
   private var metadataObjectTypes: [AVMetadataObject.ObjectType] = []
 
-  static let defaultMetadataObjectTypes: [AVMetadataObject.ObjectType] = [
-    .qr, .ean8, .ean13, .pdf417
-  ]
+  // MARK: Public Properties
 
-  // MARK: Public Methods
+  public weak var delegate: ScannerDelegate?
 
-  public init(from viewController: UIViewController, metadataObjectTypes: [AVMetadataObject.ObjectType] = defaultMetadataObjectTypes) {
+  // MARK: Init
+
+  public init(from viewController: UIViewController,
+              metadataObjectTypes: [AVMetadataObject.ObjectType] = MetadataObjectTypes.default,
+              delegate: ScannerDelegate? = nil) {
     self.viewController = viewController
     self.metadataObjectTypes = metadataObjectTypes
+    self.delegate = delegate
     self.capturedSession = AVCaptureSession()
   }
+}
+
+// MARK: Public Methods
+
+extension Scanner {
 
   public func startCaptureSession() {
     guard let capturedSession = capturedSession else {
@@ -28,6 +37,7 @@ final class Scanner: NSObject {
 
     if capturedSession.isRunning == false {
       capturedSession.startRunning()
+      Logger.info("Session started......")
     }
   }
 
@@ -38,17 +48,21 @@ final class Scanner: NSObject {
 
     if capturedSession.isRunning == true {
       capturedSession.stopRunning()
+      Logger.info("Session ended......")
     }
   }
-}
 
-// MARK: Private Methods
+  public func createAndStartSession() {
+    guard let session = capturedSession else {
+      Logger.failure("No session has been initialized")
+      return
+    }
 
-private extension Scanner {
+    guard let capturedDevice = AVCaptureDevice.default(for: .video) else {
+      Logger.failure("No captured device for default type .video")
+      return
+    }
 
-  func runSession() {
-    guard let session = capturedSession else { return }
-    guard let capturedDevice = AVCaptureDevice.default(for: .video) else { return }
     do {
       let capturedDeviceInput = try AVCaptureDeviceInput(device: capturedDevice)
 
@@ -56,6 +70,7 @@ private extension Scanner {
       if session.canAddInput(capturedDeviceInput) {
         session.addInput(capturedDeviceInput)
       } else {
+        Logger.failure("Failed adding capturedDevice input")
         return
       }
 
@@ -65,30 +80,35 @@ private extension Scanner {
         session.addOutput(metadataOutput)
 
         metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-        metadataOutput.metadataObjectTypes = metadataObjectTypes
+        metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
         
       } else {
-        assertionFailure()
+        Logger.failure("Failed adding metadata output")
         return
       }
 
       // AVCaptureVideoPreviewLayer
       let previewControllerLayer = AVCaptureVideoPreviewLayer(session: session)
-      previewControllerLayer.frame = viewController.view.bounds
+      previewControllerLayer.frame = viewController.view.layer.bounds
       previewControllerLayer.videoGravity = .resizeAspectFill
       viewController.view.layer.addSublayer(previewControllerLayer)
 
+      // Start session
+      session.startRunning()
+      
     } catch {
-      assertionFailure()
+      Logger.failure(error.localizedDescription)
       return
     }
-
-    // Start session
-    session.startRunning()
   }
+}
 
-  private func codeFounded(code: String) {
-    print("Code \(code)")
+// MARK: Private Methods
+
+private extension Scanner {
+
+  func found(code: String) {
+    Logger.info("Code found. Code = \(code)")
   }
 }
 
@@ -96,17 +116,20 @@ private extension Scanner {
 
 extension Scanner: AVCaptureMetadataOutputObjectsDelegate {
 
-  func metadataOutput(_ output: AVCaptureMetadataOutput,
+  public func metadataOutput(_ output: AVCaptureMetadataOutput,
                       didOutput metadataObjects: [AVMetadataObject],
                       from connection: AVCaptureConnection) {
 
     capturedSession?.stopRunning()
 
+    self.delegate?.metadataOutput(output, didOutput: metadataObjects, from: connection)
     guard let readableObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
           let string = readableObject.stringValue else {
+            Logger.failure("Can't read metadata object.")
             return
           }
 
-    codeFounded(code: string)
+    found(code: string)
+    delegate?.metadataOutput(string)
   }
 }
