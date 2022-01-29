@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2456BF2B27A59C6F003558D1 /* SwiftScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 2456BF2A27A59C6F003558D1 /* SwiftScanner */; };
 		24CD5CD827A439A400F9D5F3 /* SwiftScannerSampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC827A439A200F9D5F3 /* SwiftScannerSampleAppApp.swift */; };
 		24CD5CDA27A439A400F9D5F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC927A439A200F9D5F3 /* ContentView.swift */; };
 		24CD5CDC27A439A400F9D5F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */; };
-		24CD5CEA27A43A1400F9D5F3 /* SwiftScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 24CD5CE927A43A1400F9D5F3 /* SwiftScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2456BF2927A59C5A003558D1 /* SwiftScanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftScanner; path = ..; sourceTree = "<group>"; };
 		24CD5CC827A439A200F9D5F3 /* SwiftScannerSampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftScannerSampleAppApp.swift; sourceTree = "<group>"; };
 		24CD5CC927A439A200F9D5F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24CD5CCA27A439A400F9D5F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24CD5CCF27A439A400F9D5F3 /* SwiftScannerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftScannerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24CD5CE727A439D300F9D5F3 /* SwiftScanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftScanner; path = ../SwiftScanner; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,7 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24CD5CEA27A43A1400F9D5F3 /* SwiftScanner in Frameworks */,
+				2456BF2B27A59C6F003558D1 /* SwiftScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 		24CD5CE627A439D300F9D5F3 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				24CD5CE727A439D300F9D5F3 /* SwiftScanner */,
+				2456BF2927A59C5A003558D1 /* SwiftScanner */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 			);
 			name = "SwiftScannerSampleApp (iOS)";
 			packageProductDependencies = (
-				24CD5CE927A43A1400F9D5F3 /* SwiftScanner */,
+				2456BF2A27A59C6F003558D1 /* SwiftScanner */,
 			);
 			productName = "SwiftScannerSampleApp (iOS)";
 			productReference = 24CD5CCF27A439A400F9D5F3 /* SwiftScannerSampleApp.app */;
@@ -374,7 +374,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		24CD5CE927A43A1400F9D5F3 /* SwiftScanner */ = {
+		2456BF2A27A59C6F003558D1 /* SwiftScanner */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftScanner;
 		};
